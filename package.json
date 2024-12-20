@@ -1,0 +1,19 @@
+{
+  "name": "docsify-general-spider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "docsify serve docs",
+    "generate-pdf": "node_modules/.bin/docsify-pdf-converter --help"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "docsify-pdf-converter": "^2.0.7"
+  }
+}

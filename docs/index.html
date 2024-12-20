@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
+    />
+  <style>
+    .img{
+      text-align: center;
+    }
+
+    body {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .sidebar-nav p {
+      font-size: 18px; 
+    }
+
+    .sidebar ul li a {
+      font-size: 16px;
+    }
+
+  </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      window.$docsify = {
+        name: "Scrapy General Engine",
+        repo: "https://github.com/fossyy/general_spider",
+        loadSidebar: true,
+        subMaxLevel: 5,
+        search: "auto",
+        auto2top: true,
+        executeScript: true,
+        mermaidConfig: {
+          querySelector: ".mermaid",
+        },
+      };
+    </script>
+    <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: true });
+      window.mermaid = mermaid;
+    </script>
+    <!-- Terminal Pretty Block Code -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-terminal-block@1.0.3"></script>
+    <!-- Flowchart Mermaid -->
+    <script src="//unpkg.com/docsify-mermaid@2.0.1/dist/docsify-mermaid.js"></script>
+    <!-- Search -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@5/dist/plugins/search.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-docker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/dockerfile.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js"></script>
+    <!-- Zooming Image -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+    <!-- Copy To Clipboard -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  </body>
+</html>
+
