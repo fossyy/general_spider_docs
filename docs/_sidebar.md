@@ -1,8 +1,11 @@
 <!-- markdownlint-disable first-line-h1 -->
 - Home
-    - [Overview Scrapy](main.md)
+    - [Overview of Scrapy](main.md)
 
 - Guide & Usage
-    - [Installation & Deploy](install.md)
-    - [Create Config](config.md)
-    - [Run Scrapy General Engine](running.md)
+    - [Installation and Deployment](install.md)
+    - [Creating a Configuration](config.md)
+    - [Running a Spider](running.md)
+
+- Monitoring
+    - [Spider Management](monitoring.md)

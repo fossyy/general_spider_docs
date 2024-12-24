@@ -1,16 +1,32 @@
 # How To Run Spider General Engine 🚀
 
---- 
-
-## Dashboard Deploy Spider
+## User Interface Deploy Spider 
 
 ![Deploy Spider View](_images/run/dsploy-view.png)
+
+--- 
+
+## How it Works 
+
+**Simple flow of scrapping process**
+
+```mermaid
+graph TD
+    A[Get All Link Categories for Product, News, or Forum]
+    A -->|Extract Links from Categories| B[Get Pagination Categories for Product, News, or Forum]
+    B -->|Follow Category Pagination| A
+    B -->|Navigate to Products, News, or Threads| C[Get Product, News, or Thread and Their Replies]
+    C -->|Extract Replies| D[Get Pagination for Product, News, or Thread]
+    D -->|Follow Pagination| C
+```
 
 --- 
 
 # Deploy New Spider
 
 Antarmuka ini digunakan untuk melakukan deploy spider dalam sebuah aplikasi scraping. Berikut adalah penjelasan untuk setiap elemen pada halaman ini:
+
+![DSCON Deploy](_media/run/dsploy-field-video.mp4 ':include :type=video controls autoplay width=100% height=800px')
 
 --- 
 
@@ -41,10 +57,10 @@ Bagian ini digunakan untuk menentukan proxy yang akan digunakan selama proses sc
 
 ![DSPLOY Available Proxies](_images/run/dsploy-avail-proxies.png)
 
+!> **Penting:** Proxy ini mencakup `1 Browser TOR` dan `1 Reverse Tor Privoxy`, karena Spider tidak mendukung SOCKS5 secara langsung dan membutuhkan reverse proxy untuk digunakan.
 
 - Jika tidak ada proxy yang tersedia, akan muncul pesan:  
-  _"No proxies available at the moment. Please check the proxy status page for available proxy information."_
-
+  _"No proxies available at the moment. Please check the **proxy status page** for available proxy information."_
 
 --- 
 
@@ -87,7 +103,7 @@ Dropdown ini digunakan untuk memilih tujuan penyimpanan data hasil scraping. Beb
 
 ![DSPLOY Output Destination](_images/run/dsploy-out-dst-local.png)
 
-?> **Tips:** Jika memilih Output Destination `local` ini akan menyimpan result didalam `server`.
+?> **Note:** Jika memilih Output Destination `local` ini akan menyimpan result didalam `server`.
 
 --- 
 
@@ -99,7 +115,7 @@ Dropdown ini digunakan untuk memilih tujuan penyimpanan data hasil scraping. Beb
 
 ![DSPLOY Output Destination](_images/run/dsploy-out-dst-kafka.png)
 
-?> **Tips:** Jika memilih Output Destination `kafka` ini akan menyimpan result didalam `kafka cluster`.
+?> **Tips:** Jika memilih Output Destination `Kafka` ini akan menyimpan result didalam `Kafka Brokers` yang sudah dikonfigurasi.
 
 #### Kafka Brokers No Available
 
@@ -115,7 +131,7 @@ Dropdown ini digunakan untuk memilih tujuan penyimpanan data hasil scraping. Beb
 
 ![DSPLOY View Kafka Brokers](_images/run/dsploy-kafka-view-brokers.png)
 
-?> **Note:** Gambar dibawah ini untuk menambahkan `Kafka Brokers & Kafka Topics`.
+?> **Note:** Gambar dibawah ini untuk menambahkan `Kafka Brokers`.
 
 **Ilustrasi**
 
@@ -124,7 +140,7 @@ Dropdown ini digunakan untuk memilih tujuan penyimpanan data hasil scraping. Beb
 --- 
 
 ## Deployment Time
-Pengguna dapat menentukan waktu deploy spider:
+Pengguna dapat menentukan waktu deploy spider
 
 ### Run Now
 
@@ -133,6 +149,8 @@ Spider langsung dijalankan setelah deploy.
 **Ilustrasi**
 
 ![DSPLOY Deployment Time Now](_images/run/dsploy-deploy-time-now.png)
+
+?> **Tips:** Untuk melihat contoh `Deployment Spider Time Now`, dapat mengunjungi [Time Now Spider](http://10.10.10.18:8443/proxy/3000#/monitoring?id=running-now-spider-details).
 
 
 ### Schedule Run
@@ -143,6 +161,7 @@ Spider dijadwalkan untuk dijalankan pada waktu tertentu.
 
 ![DSPLOY Deployment Time Scheduled](_images/run/dsploy-deploy-time-scheduled.png ':size=1000')
 
+?> **Tips:** Untuk melihat contoh `Deployment Spider Scheduled`, dapat mengunjungi [Scheduled Spider](http://10.10.10.18:8443/proxy/3000#/monitoring?id=scheduled-spider-details).
 
 --- 
 
@@ -156,7 +175,9 @@ Contoh format JSON:
 ```json
 {
   "DOWNLOAD_DELAY": 1,
-  "CONCURRENT_REQUESTS": 16
+  "CONCURRENT_REQUESTS": 16,
+  "CONCURRENT_ITEMS" : 100,
+  "CONCURRENT_REQUESTS_PER_DOMAIN" : 8
 }
 ```
 

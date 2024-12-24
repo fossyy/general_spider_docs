@@ -1,13 +1,12 @@
 # How To Use Config Maker 🚀
 
-## Dashboard Config Maker
+## User Interface Config Maker 🖥️
 
 ### Initial Steps
-Gunakan antarmuka aplikasi untuk membuat konfigurasi XPath yang akan digunakan untuk scraping. Setiap konfigurasi memungkinkan Anda mendefinisikan elemen-elemen spesifik yang akan diekstraksi dari halaman web.
+Gunakan antarmuka aplikasi untuk membuat konfigurasi XPath yang akan digunakan untuk Scrapping. Setiap konfigurasi memungkinkan Anda mendefinisikan elemen-elemen spesifik yang akan diekstraksi dari halaman web.
 
 !> **Penting:** Scrapy General Engine saat ini hanya mendukung `XPath 1.0` kunjungi [Dokumentasi XPath 1.0](https://www.w3.org/TR/1999/REC-XPath-19991116/).
 
-### User Interface
 Berikut adalah tampilan antarmuka untuk membuat konfigurasi pertama Anda:
 
 ![DSCON View](_images/config/dscon-view.png)
@@ -21,11 +20,12 @@ Pada dashboard **Config Maker**, terdapat beberapa tombol `(button)` yang dapat 
 ---
 
 #### add field
-Tombol **Add Field** digunakan untuk menambahkan field baru ke dalam konfigurasi XPath. Ini memungkinkan pengguna untuk menyesuaikan konfigurasi sesuai kebutuhan scraping.
+
+Tombol **Add Field** digunakan untuk menambahkan field baru ke dalam konfigurasi XPath. Ini memungkinkan pengguna untuk menyesuaikan konfigurasi sesuai kebutuhan Scrapping.
 
 **Ilustrasi**:
 
-![DSCON Add Field](_images/config/dscon-field-config.png)
+![DSCON Add Field](_media/config/dscon-add-field-config-video.mp4 ':include :type=video controls autoplay width=100% height=800px')
 
 **Fungsi Utama**:
 
@@ -40,7 +40,22 @@ Tombol **Load from Disk** memungkinkan pengguna untuk mengimpor konfigurasi yang
 
 **Ilustrasi**:
 
-![DSCON Field Test Config](_images/config/dscon-load-config.png ':size=800')
+![DSCON Load Config Disk](_media/config/dscon-load-config-video.mp4 ':include :type=video controls autoplay width=100% height=800px')
+
+**Fungsi Utama**:
+
+- Mengunggah file konfigurasi dalam format JSON yang telah disimpan sebelumnya.
+- Membantu pengguna mengelola dan memuat konfigurasi dengan cepat tanpa perlu input manual.
+
+---
+
+#### load from database
+
+Tombol **Load from Database** memungkinkan pengguna untuk mengimpor konfigurasi yang sudah ada dari database. Dengan fitur ini, pengguna tidak perlu membuat konfigurasi dari awal setiap kali ingin menggunakan konfigurasi lama.
+
+**Ilustrasi**:
+
+![DSCON Load Config Database](_media/config/dscon-load-db-config-video.mp4 ':include :type=video controls autoplay width=100% height=800px')
 
 **Fungsi Utama**:
 
@@ -53,6 +68,10 @@ Tombol **Load from Disk** memungkinkan pengguna untuk mengimpor konfigurasi yang
 
 Tombol ini digunakan untuk mengunduh konfigurasi yang sudah dibuat atau dimodifikasi ke dalam file lokal. Dengan fitur ini, pengguna dapat menyimpan hasil konfigurasi untuk digunakan di lain waktu atau sebagai cadangan.
 
+**Ilustrasi**:
+
+![DSCON Field Donwload Config](_media/config/dscon-download-config-video.mp4 ':include :type=video controls autoplay width=100% height=800px')
+
 **Fungsi Utama**:
 - Menyimpan konfigurasi dalam format JSON ke perangkat pengguna.
 - Memudahkan berbagi konfigurasi dengan tim lain.
@@ -61,15 +80,15 @@ Tombol ini digunakan untuk mengunduh konfigurasi yang sudah dibuat atau dimodifi
 
 #### deploy configuration
 
-Tombol **Deploy Configuration** berfungsi untuk menerapkan konfigurasi yang telah dibuat ke dalam aplikasi atau sistem yang menggunakan konfigurasi tersebut. Fitur ini memastikan bahwa konfigurasi siap digunakan untuk proses scraping.
+Tombol **Deploy Configuration** berfungsi untuk menerapkan konfigurasi yang telah dibuat ke dalam aplikasi atau sistem yang menggunakan konfigurasi tersebut. Fitur ini memastikan bahwa konfigurasi siap digunakan untuk proses Scrapping.
 
 **Ilustrasi**:
 
-![DSCON Field Test Config](_images/config/dscon-deploy-config.png)
+![DSCON Field Deploy Config](_media/config/dscon-deploy-config-video.mp4 ':include :type=video controls autoplay width=100% height=800px')
 
 **Fungsi Utama**:
 
-- Mengintegrasikan konfigurasi dengan aplikasi scraping.
+- Mengintegrasikan konfigurasi dengan aplikasi Scrapping.
 - Memastikan konfigurasi diterapkan secara langsung di lingkungan produksi atau pengujian.
 
 ---
@@ -95,12 +114,12 @@ Tombol Test Configuration memungkinkan pengguna untuk menguji konfigurasi XPath 
 
 ![DSCON Field](_images/config/dscon-field.png)
 
-?> **Tips:** Konfigurasi scraping didefinisikan dalam format JSON. Template ini membantu Anda menentukan elemen-elemen yang ingin diambil.
+?> **Tips:** Konfigurasi Scrapping didefinisikan dalam format JSON. Template ini membantu menentukan elemen-elemen yang ingin diambil.
 
 
 ### Structure Configuration
 
-Setiap konfigurasi scraping didefinisikan dalam format JSON seperti berikut:
+Setiap konfigurasi Scrapping didefinisikan dalam format JSON seperti berikut:
 
 ```terminal
 {
@@ -131,12 +150,15 @@ Setiap konfigurasi scraping didefinisikan dalam format JSON seperti berikut:
 
 ###  Details Fields Structure
 
+
 #### base url
 
-Digunakan untuk URL dasar dari situs web yang akan discraping.
+Digunakan untuk URL dasar dari situs web yang akan diScrapping.
 
 ```terminal
+
 "base_url": "http://bzzzzsvqcrqtki6uym6itiixfhni37ybtt7mkbjyxn2pgllzxf2qgyd.onion"
+
 ```
 
 ---
@@ -145,10 +167,18 @@ Digunakan untuk URL dasar dari situs web yang akan discraping.
 
 Mendefinisikan XPath untuk elemen daftar, seperti daftar produk.
 
+Expect -> [
+  "https://example-url.com/product",
+  "https://example-url.com/product2",
+  "https://example-url.com/product3"
+]
+
 ```terminal
+
 "_list": {
   "_element": "//div[@class='product-list']/a/@href"
 }
+
 ```
 
 !> **Penting:** Scrapy General Engine saat ini hanya mendukung `XPath 1.0` kunjungi [Dokumentasi XPath 1.0](https://www.w3.org/TR/1999/REC-XPath-19991116/).
@@ -160,7 +190,9 @@ Mendefinisikan XPath untuk elemen daftar, seperti daftar produk.
 XPath untuk tombol next page yang mengarah ke halaman berikutnya.
 
 ```terminal
+
 "_pagination": "//a[@class='next-page']/@href"
+
 ```
 
 !> **Penting:** Scrapy General Engine saat ini hanya mendukung `XPath 1.0` kunjungi [Dokumentasi XPath 1.0](https://www.w3.org/TR/1999/REC-XPath-19991116/).
@@ -172,10 +204,12 @@ XPath untuk tombol next page yang mengarah ke halaman berikutnya.
 Field untuk menentukan nilai tertentu menggunakan XPath dengan opsi tipe dan opsional.
 
 ```terminal
+
 "source": {
   "value": "deepweb",
   "type": "constraint"
 },
+
 ```
 
 !> **Penting:** Scrapy General Engine saat ini hanya mendukung `XPath 1.0` kunjungi [Dokumentasi XPath 1.0](https://www.w3.org/TR/1999/REC-XPath-19991116/).
@@ -187,9 +221,11 @@ Field untuk menentukan nilai tertentu menggunakan XPath dengan opsi tipe dan ops
 Section placeholder untuk elemen lain yang tidak termasuk dalam kategori utama dengan menggunakan simbols `@`.
 
 ```terminal
+
 "@thread": {
   "_tag": "global"
 }
+
 ```
 
 !> **Penting:** Scrapy General Engine saat ini hanya mendukung `XPath 1.0` kunjungi [Dokumentasi XPath 1.0](https://www.w3.org/TR/1999/REC-XPath-19991116/).
@@ -201,25 +237,69 @@ Section placeholder untuk elemen lain yang tidak termasuk dalam kategori utama d
 XPath untuk elemen yang perlu diulang, seperti komentar atau ulasan.
 
 ```terminal
+
 "_loop": {
-  "_element": "//div[@class='comments']/div",
+  "_element": "//div[@class='example-class']/div",
   "_key": "comment",
   "_tag": "root"
 }
+
 ```
 
 !> **Penting:** Scrapy General Engine saat ini hanya mendukung `XPath 1.0` kunjungi [Dokumentasi XPath 1.0](https://www.w3.org/TR/1999/REC-XPath-19991116/).
 
 ---
 
-### Optional, Tag dan Type
+#### key
+
+XPath untuk menentukan `key/kunci` dari sebuah `value/nilai` yang ingin di Scrapping.
+
+```terminal
+
+"_key": "example-key",
+
+```
+
+!> **Penting:** Scrapy General Engine saat ini hanya mendukung `XPath 1.0` kunjungi [Dokumentasi XPath 1.0](https://www.w3.org/TR/1999/REC-XPath-19991116/).
+
+---
+
+#### element
+
+XPath untuk element yang perlu diulang didalam `_loop and _list`, seperti komentar atau ulasan.
+
+```terminal
+
+"_element": "//div[@class='example-class']/div",
+
+```
+
+!> **Penting:** Scrapy General Engine saat ini hanya mendukung `XPath 1.0` kunjungi [Dokumentasi XPath 1.0](https://www.w3.org/TR/1999/REC-XPath-19991116/).
+
+---
+
+#### value
+
+XPath untuk mengambil `value/nilai` dari sebuah `XPath` yang ingin di scrapping.
+
+```terminal
+
+"value": "example-path-to-get-value",
+
+```
+
+!> **Penting:** Scrapy General Engine saat ini hanya mendukung `XPath 1.0` kunjungi [Dokumentasi XPath 1.0](https://www.w3.org/TR/1999/REC-XPath-19991116/).
+
+---
 
 #### type
 
- Tipe data mendefinisikan nilai yang diambil oleh XPath.
+Tipe data mendefinisikan nilai yang diambil oleh XPath.
 
 ```terminal
+
 "type": "[string, integer, list, timestamp]"
+
 ```
 
 ?> **Note:** Type memiliki 4 value yaitu: `string`, `integer`, `list` dan `timestamp`
@@ -231,7 +311,9 @@ XPath untuk elemen yang perlu diulang, seperti komentar atau ulasan.
 Menentukan apakah sebuah field bersifat opsional.
 
 ```terminal
+
 "optional": [true, false]
+
 ```
 
 ?> **Note:** Optional memiliki 2 value boolean yaitu: `true` dan `false`
@@ -243,7 +325,9 @@ Menentukan apakah sebuah field bersifat opsional.
 Tag ini akan digunakan untuk menentukan data yang akan dimapping kedalam tag tersebut
 
 ```terminal
+
 "_tag": "[root, global, parent]"
+
 ```
 ?> **Note:** Tag memiliki 3 value yaitu: `root`, `global` dan `parent`
 

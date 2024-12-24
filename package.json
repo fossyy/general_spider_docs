@@ -9,11 +9,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "docsify serve docs",
-    "generate-pdf": "node_modules/.bin/docsify-pdf-converter --help"
+    "convert": "node_modules/.bin/docsify-pdf-converter"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "docsify-pdf-converter": "^2.0.7"
+    "docsify-pdf-converter": "^2.0.7",
+    "docsify-to-pdf": "^0.0.5"
   }
 }

@@ -202,6 +202,7 @@ volumes:
 networks:
   scrapyd:
 ```
+!> **Penting:** torproxy ini mencakup `1 Browser TOR` dan `1 Reverse Tor Privoxy`, karena Spider tidak mendukung SOCKS5 secara langsung dan membutuhkan reverse proxy untuk digunakan.
 
 ### 2.2 Menjalankan Docker Compose
 
