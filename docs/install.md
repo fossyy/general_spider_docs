@@ -36,7 +36,7 @@ COPY /general_spider_dashboard /src
 
 WORKDIR /src
 
-RUN npm install -g tailwindcss
+RUN npm install -g tailwindcss@v3.4.17
 RUN npm install -g clean-css-cli
 RUN npx tailwindcss -i ./public/input.css -o ./tmp/output.css
 RUN cleancss -o ./public/output.css ./tmp/output.css
