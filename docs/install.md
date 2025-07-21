@@ -52,7 +52,7 @@ COPY --from=python_build /src/general.egg /src/app/general.egg
 WORKDIR /src
 
 RUN update-ca-certificates
-RUN go install github.com/a-h/templ/cmd/templ@latest
+RUN go install github.com/a-h/templ/cmd/templ@v0.3.819
 RUN templ generate
 RUN go build -o ./tmp/main
 
